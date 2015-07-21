@@ -1,0 +1,97 @@
+/**
+ * Need to pass height 100% to make it work on browsers
+ */
+html, body, .wrapper, .page, .container-fluid, .content, .row {
+  height: 100%;
+}
+
+/**
+ * Prevent height 100% on nested tables.
+ */
+.row .row {
+  height:auto;
+}
+
+
+body {
+  margin: 0 auto;
+  overflow: hidden;
+  width:100%;
+  /* iPad simulation*/
+  /*
+  position:relative;
+  max-width:1024px;
+  height:768px;
+  */
+}
+/**
+ * A draggable wrapper "window" used with draggableTouch()
+ * Basically we have 3 pages inside this wrapper which moves them all at once
+ * and the draggableTouch JS will trigger transitions based on its movement.
+ */
+.wrapper {
+  position:relative;
+  transform: translate3d(0,0,0);  
+}
+
+/**
+ * The .pane class is useful for creating 1 or 2 column scrollable panes 
+ */
+.pane {
+  height:100%;
+  padding:75px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  transform: translateZ(0);  
+}
+
+
+
+/**
+ * Note that not all cursor types are cross browser.
+ * You could use an image, but the basic move icon seems to work best and
+ * is what Google Maps does.
+ * .grab { cursor: url(../../images/openhand.cur) 8 8, move; }
+ * .grabbing { cursor: url(../../images/closedhand.cur) 8 8, move; }
+ */
+.grabbing { cursor: move; }
+
+/**
+ * There are three pages always present, the current one that fills the browser, and two hidden ones.
+ * On a page next/prev transition, the pages slide around to keep the motion fluid and uses
+ * AJAX to load the next/prev pages as needed.
+ */
+.page {
+  width:100%;
+  position:absolute;
+  left:0;
+  transform:translate3d(0,0,0);
+  
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility:hidden;  
+  -webkit-backface-visibility: hidden;
+  box-sizing:border-box;
+}
+.page-current {
+  left:0;
+  opacity:1;
+}
+.page-next {
+  left:100%;
+  opacity:1;
+}
+.page-previous {
+  left:-100%;
+  opacity:1;
+}
+
+/**
+ * If touch enabled this turns on momentum scrolling
+ */
+html.touch .modal,
+html.touch .pane {
+    /*
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;  */
+}
+

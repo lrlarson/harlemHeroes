@@ -1,0 +1,47 @@
+<div class="container-fluid splash-page">
+  <div class="row">
+    <div class="col-xs-6 portrait-tiles ">
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Anderson.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Baldwin.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Beardon.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Bethune.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Bontemps.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Bubbles.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Bunche.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Cullen.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Davis.jpg');"></div>
+    </div>
+    <div class="col-xs-6 portrait-tiles right">
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Dee.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Dubois.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Dunham.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Elzy.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Fitzgerald.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Gibson.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Gillespie.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Handy.jpg');"></div>
+        <div class="portrait-tile" style="background-image:url('assets/images/portraits/thumb/Hayes.jpg');"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-cover">
+  <div class="inner">
+    <h2>HARLEM HEROES</h2>
+    <div class="photo-credit">
+      Photographs by Carl Van Vechten
+    </div>
+    <div class="publisher-tag">EAKINS PRESS FOUNDATION</div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  // Randomly rotates images every few seconds
+  $('.splash-page .portrait-tile').imageTile();
+  setTimeout(function(){
+     $('.modal-cover').addClass('open'); 
+  }, 2000);
+});
+</script>

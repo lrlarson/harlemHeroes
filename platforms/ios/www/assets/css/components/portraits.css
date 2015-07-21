@@ -1,0 +1,49 @@
+.portraits {
+  margin:0 auto;
+  font-size:2rem;
+}
+
+/**
+ * Home tiles
+ */
+.portrait-tiles,
+.portrait-tiles .pane,
+.portrait-tiles .row {
+  height:100%;
+  padding:0;
+  margin:0;
+}
+.portrait-tiles {
+  background:#000;
+}
+.portrait-tile {
+  border:solid 1px #000000;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  width:33.3333%;
+  height:33.3333%;
+  float:left;
+  display:block;
+  position:static;
+  transform: translateZ(0);    
+}
+
+/* Tiles for modal menu*/
+.modal .portrait-tile {
+  border:none;
+}
+.modal a.portrait-tile {
+  cursor:pointer;
+  position:relative;
+}
+.modal .portrait-tile .caption {
+  position:absolute;
+  width:100%;
+  height:100%;
+  text-align:center;
+  vertical-align:middle;
+  background-color:rgba(0,0,0,.5);
+  padding:33%;
+  font-size:2.25rem;
+}

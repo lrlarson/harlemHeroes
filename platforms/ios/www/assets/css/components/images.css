@@ -1,0 +1,12 @@
+
+img {
+  max-width:100%;
+  user-drag: none; 
+  -moz-user-select: none;
+  -webkit-user-drag: none;  
+}
+
+img.eakins-mark {
+  margin-bottom:-20px;
+}
+

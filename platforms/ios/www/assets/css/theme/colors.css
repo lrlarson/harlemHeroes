@@ -1,0 +1,18 @@
+body {
+  background-color: #b9b5b1;
+  color: #000;
+}
+
+.light-background {
+  background-color:#FFFFFF;
+}
+
+a {
+  color:#000;  
+}
+
+/* Use to improve perceived click speed on mobile */
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+a:active {}
+
+

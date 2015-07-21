@@ -1,0 +1,186 @@
+/**
+ * Modal windows hidden by default
+ */
+.modal {
+  top:0;
+  z-index:-1000;
+  opacity:0;
+  /*transition: all .5s ease;*/
+  width:50%;
+  height:100%;
+  color:#fff;
+  background-color:#1a1a1a;
+  position:absolute;
+  overflow-y:auto;
+  overflow-x:hidden;
+  transform: translateZ(0);  
+}
+.modal a {
+  color:#fff;
+}
+.modal.open {
+  top:0;
+  opacity:1;
+  transition: opacity .3s ease;
+  z-index:9;
+}
+.modal.close {
+  transition: opacity .3s ease;
+}
+.modal-left {
+  left:0;
+}
+.modal-right {
+  right:0;
+}
+.modal-audio {
+  left:0;
+}
+.modal-video {
+  left:0;
+}
+
+.modal-cover {
+  right:0;
+  background-color:#b9b5b1;
+}
+.modal-cover.open {
+  transition: opacity 2s ease-in-out;
+}
+
+/**
+ * Modal Trigger Buttons
+ */
+.modal-button {
+  cursor:pointer;
+  background:#FFFFFF;
+  border:solid #eee 2px;
+  color:#000;
+  position:absolute;
+  z-index:10;
+  height:4.0rem;
+  width:4.0rem;
+  overflow:hidden;
+  text-align:center;
+  font-size:2.5rem;
+  display:block;
+}
+.modal-button.open {
+  background:#000;
+  color:#FFF;
+  border:solid 1px #000;
+}
+.modal-toggle-left {
+  top:2rem;
+  left:2rem;
+}
+.modal-toggle-right {
+  top:2rem;
+  right:2rem;
+}
+.modal-toggle-audio {
+  top:2rem;
+  left:8rem;
+}
+.modal-toggle-video {
+  top:2rem;
+  left:14rem;
+}
+.modal-button i {
+  vertical-align:middle;
+}
+.modal-button i.fa-close {
+  margin-top:-.1rem;
+}
+.modal-button i.fa-bars {
+  margin-top:-.2rem;
+}
+
+/**
+ * Chapter Index
+ */
+.section-jump {
+  padding:75px;
+  text-align:center;
+}
+.section-jump h2.title {
+  color:#333333;
+  text-align: center;
+  font-size: 15px;
+  font-family:'Source Sans Pro';
+  font-weight: 600;
+  line-height: 35px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;  
+}
+
+/**
+ * Audio/Video
+ */
+.modal-video,
+.modal-audio {
+  padding:100px 75px 75px 75px;
+  text-align:center;
+}
+.modal-video h2,
+.modal-video h3,
+.modal-audio h2, 
+.modal-audio h3 {
+  color:#ffffff;
+  max-width:32rem;
+  margin-left:auto;
+  margin-right:auto;
+}
+.modal-video h2 {
+  margin-bottom:0;
+}
+h3.date {
+  font-size:2rem;
+  letter-spacing:3px;
+}
+.modal-video video {
+  min-height:240px;
+}
+
+
+/**
+ * Splash Cover
+ */
+.modal-cover .inner {
+  position:relative;
+  height:100%;
+  padding:225px 25px 0 25px;
+}
+.modal-cover h2 {
+  font-size:8rem;
+  text-align:center;
+  color:#a84e15;
+  font-weight:normal;
+  line-height:1;
+}
+.modal-cover .photo-credit {
+  font-style:italic;
+  color:#000000;
+  border-style:solid;
+  border-color:#000000;
+  border-width:1px 0 1px 0;
+  font-size:3.2rem;
+  margin:.6em 50px;
+  padding:6px 0;
+  text-align:center;
+}
+.modal-cover .publisher-tag {
+  bottom:50px;
+  position:absolute;
+  width:100%;
+  margin-left:-25px;
+  margin-right:-25px;
+  text-align:center;
+  font-size:1.5rem;
+  color:#9b9895;
+  font-family:'Source Sans Pro';
+  letter-spacing:.1rem;
+}
+
+
+

@@ -1,0 +1,25 @@
+header {
+  z-index:2;
+}
+header a.next,
+header a.previous {
+  position:absolute;
+  top:46%;
+  z-index:2;
+  font-size:3rem;
+  color:#333;
+  opacity:.25;
+  display:none;
+}
+header a.next {
+  right:10px;
+}
+header a.previous {
+  left:10px;
+}
+header a.next:focus,
+header a.previous:focus,
+header a.next:hover,
+header a.previous:hover {
+ opacity:1; 
+}

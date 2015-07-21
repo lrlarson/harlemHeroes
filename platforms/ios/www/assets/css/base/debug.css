@@ -1,0 +1,32 @@
+/**
+ * Debugging styles to help with development
+ */
+
+.pane {
+  height:100%;
+  border:solid red 1px;
+  padding:75px;
+  overflow:auto;
+}
+
+
+.ui-widget,
+.ui-widget:before {
+  border:dashed 1px blue;
+}
+.ui-widget:before {
+  display:block;
+  content:"debug.css :: ui-widget";
+  padding:2px;
+  background:yellow;
+  font-size:1.2rem;
+}
+
+
+/**
+ * Grid
+ */
+[class*="col-"] {
+  background: rgba(86, 61, 124, 0.15);
+  border: 1px solid rgba(86, 61, 124, 0.2);
+}

@@ -1,0 +1,98 @@
+
+/* System Messages */
+.messages {
+  color:#fcfcfc;
+  border-color: #3498db;
+  background-color:#2980b9;
+  background-image: none;
+  border: 1px solid;
+  clear: both;
+  margin: 10px 0;
+  padding: 10px 20px; /* LTR */
+  display:block;
+}
+.messages:before {
+  font-family:fontawesome;
+  content: "\f129"; /* icon-info */
+  float:right;
+  margin-left:20px;
+}
+.messages a, 
+.messages a:hover {
+  color:#fcfcfc;
+  border-bottom:dotted 1px #fcfcfc;
+}
+.messages.status {
+  background-color: #3fc380;
+  border-color: #11c27b;
+}
+.messages.status:before {
+  content: "\f058"; /* check-circle*/
+}
+
+.messages.warning {
+  background-color: #f5d76e;
+  border-color: #f4d03f;
+  color: #444444;
+}
+.messages.warning a {
+  color:#444444;
+  border-color:#444444;
+}
+.messages.warning:before {
+  content: "\f071"; /* exclamation-triangle */
+}
+.messages.error {
+  border-color:#C0392B;
+  background-color:#D64541;
+}
+.messages.error:before {
+  content: "\f057"; /* times-circle */
+}
+
+.messages > div {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.messages .msg-col-left {
+  padding: 5px 10px 5px 0;
+  text-align: center;
+}
+.messages .msg-col-left .icon {
+  font-size: 26px;
+  line-height: 1em;
+}
+
+.messages .msg-col-right {
+  line-height: 1.29em; /* ~18px */
+  padding: 5px 0;
+}
+
+.messages ul {
+  margin: 0 0 0 1.25em; /* LTR */
+  padding: 0;
+}
+.messages ul li {
+  list-style-image: none;
+}
+
+.messages.single-msg > div {
+  vertical-align: middle;
+}
+
+.messages.single-msg .msg-col-left {
+  padding-top: 5px;
+}
+
+.messages.single-msg .msg-col-right {
+  padding: 0;
+}
+
+span.error,
+span.warning {
+  color:#ff0000;
+}
+.messages ul {
+  list-style:inside disc;
+}

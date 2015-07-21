@@ -1,0 +1,136 @@
+/**
+ * Typography & Text styles
+ */
+
+* {
+  /*-webkit-font-smoothing: antialiased;*/
+}
+
+/* html is set to 62.5% so that all the REM measurements are based on 10px sizing. So basically 1.5rem = 15px */
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.8em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: 'Centaur', 'Source Sans Pro', sans-serif;
+}
+
+/**
+ * Links
+ */
+a {
+  font-weight: normal;
+  text-decoration: none;
+}
+a:focus {
+  outline: thin dotted;
+}
+
+small {
+  font-size: 75%;
+}
+
+/**
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  text-rendering: optimizeLegibility; /*  voodoo to enable ligatures and kerning | https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+  color: #222222;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+h1 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h2 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h3 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h4 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h5 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+h6 { font-size: 1.4rem; line-height: 1.6;  letter-spacing: 0; }
+
+/**
+ * Paragraphs
+ */
+p {
+  margin: 0 auto 1.5em auto; /* bottom margin for paragraphs */
+}
+p + p {
+
+}
+
+/**
+ * Quotes & Blockquotes
+ */
+q {
+  quotes: '\00201C' '\00201D';
+}
+q:before {
+  content: open-quote;
+}
+q:after {
+  content: close-quote;
+}
+
+blockquote {
+  background-color: #F8F8F8;
+  border-left: 2px solid #AFC0D2;
+  margin: 1em 3em;
+  padding: .75em 1em;
+}
+blockquote p:last-child {
+  margin-bottom: 0;  
+}
+
+/**
+ * Horizontal lines
+ */
+/* https://css-tricks.com/examples/hrs/ */
+hr {
+    border: 0;
+    height: 1px;
+    margin:6rem auto;
+    width:100%;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+hr.thin {
+  margin: 10px auto;
+}
+hr.collapse-margin {
+  margin: 0 auto;
+}
+
+/**
+ * Formatting classes
+ */
+.text-center {
+  text-align:center;
+}
+.text-right {
+  text-align:right;
+}
+.text-left {
+  text-align:left;
+}
+.italic {
+  font-style:italic;
+}
+.small-caps {
+  font-variant: small-caps;
+}
+.first-letter::first-letter {
+  font-size:150%;
+  font-weight:bold;
+}
+.letter-spacing {
+  letter-spacing:6px;
+}

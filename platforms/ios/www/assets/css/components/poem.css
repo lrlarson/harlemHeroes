@@ -1,0 +1,10 @@
+.poem {
+  font-size:2.3rem;
+  max-width:420px;
+  margin:0 auto;
+  margin-top:75px;
+}
+.poem p {
+  margin-bottom:1rem;
+}
+

@@ -1,0 +1,103 @@
+/**
+ * General CSS3 transitions and JS Classes
+ * Try and prefix state classes: .js- .is-open
+ * You can use a general class to toggle all animations, i.e. .animation .sidebar-open
+ */
+
+/**
+ * Example: Simple fade transition
+ */
+
+/*
+a {
+  opacity:1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+} 
+
+a:hover {
+  opacity:.5;
+} 
+*/
+
+/* Turn to next page */
+.js-next .page-current {
+  left:-100%;
+  opacity:0;
+  transition: 1s;
+}
+.js-next .page-next {
+  left: 0;
+  opacity:1;
+  transition: 1s;
+}
+.js-next .page-previous {
+  left: -100%;
+  opacity:0;
+}
+
+/* Turn to previous page*/
+.js-previous .page-current {
+  left:100%;
+  opacity:0;
+  transition: 1s;
+}
+.js-previous .page-previous {
+  left: 0;
+  opacity:1;
+  transition: 1s;
+}
+.js-previous .page-next {
+  left: 100%;
+  opacity:0;
+}
+
+/* http://projects.lukehaas.me/css-loaders/*/
+.loader {
+  overflow:hidden;
+  margin: 60px auto;
+  font-size: 10px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-indent: -9999em;
+  border-top: .5em solid rgba(255, 255, 255, 0);
+  border-right: .5em solid rgba(255, 255, 255, 0);
+  border-bottom: .5em solid rgba(255, 255, 255, .6);
+  border-left: .5em solid rgba(255, 255, 255, 0);
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1s infinite linear;
+  animation: load8 1s infinite linear;
+}
+.loader,
+.loader:after {
+  border-radius:50%;
+  width: 6em;
+  height: 6em;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border-color:rgba(0, 0, 0);
+  }
+}

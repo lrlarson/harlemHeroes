@@ -1,0 +1,25 @@
+.book {
+  background-color: #cfcbc7;
+  box-shadow: 5px 5px 5px #888888;
+  padding:25px 25px 15px 25px;
+  margin-bottom:54px;
+  margin-top:20px;
+}
+
+.book h1 {
+  color:#a84e15;
+  font-size:4.1rem;
+  margin:1rem;
+}
+
+.book .photo-credit {
+  font-style:italic;
+  color:#444444;
+  border-style:solid;
+  border-color:#837f7e;
+  border-width:2px 0 2px 0;
+  font-size:2rem;
+  margin:.6em 30px;
+  padding:6px 0;
+}
+

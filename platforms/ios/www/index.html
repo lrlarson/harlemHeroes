@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>Harlem Heroes</title>
+    
+        <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+
+        <link rel="stylesheet" href="assets/css/base/normalize.css" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="assets/css/base/font/centaur/styles.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/base/font/centaur-italic/styles.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/base/states.css" type="text/css"/>
+        <!-- link rel="stylesheet" href="assets/css/base/debug.css" type="text/css"/ -->
+        
+        <link rel="stylesheet" href="assets/css/base/typography.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/base/utility.css" type="text/css"/>        
+        <link rel="stylesheet" href="assets/css/layout/css/grid12.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="assets/css/components/base.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/header.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/forms.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/buttons.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/images.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/tables.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/about.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/poem.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/introduction.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/portraits.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/portrait.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/messages.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/modal.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/components/pushtape-player.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/base/font/font-awesome/css/font-awesome.min.css">
+          
+        <link rel="stylesheet" href="assets/css/theme/colors.css" type="text/css"/>
+  </head>
+
+  <body class="animations">
+
+    <header role="banner">
+      <a class="previous no-user-select" data-action="js-previous" href="" alt="previous" title="previous"><i class="fa fa-caret-left"></i></a>
+      <a class="next no-user-select" data-action="js-next" href="" alt="next" title="next"><i class="fa fa-caret-right"></i></a>
+      
+      <a class="modal-button no-user-select modal-toggle-left" data-icon-class="fa fa-th" data-toggle-target=".modal-left"><i class="fa fa-th"></i></a>
+      <a class="modal-button no-user-select modal-toggle-right" data-icon-class="fa fa-bars" data-toggle-target=".modal-right"><i class="fa fa-bars"></i></a>
+      
+      <div class="modal modal-left">
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Anderson.jpg');" href=""><div class="caption">Marian Anderson</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Baldwin.jpg');" href=""><div class="caption">James Baldwin</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Beardon.jpg');" href=""><div class="caption">Romare Bearden</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Bethune.jpg');" href=""><div class="caption">Mary McLeod Bethune</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Bontemps.jpg');" href=""><div class="caption">Arna Bontemps</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Bubbles.jpg');" href=""><div class="caption">John W. Bubbles</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Bunche.jpg');" href=""><div class="caption">Ralph Bunche</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Cullen.jpg');" href=""><div class="caption">Countee Cullen</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Davis.jpg');" href=""><div class="caption">Ossie Davis</div></a>
+        
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Dee.jpg');" href=""><div class="caption">Ruby Dee</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Dubois.jpg');" href=""><div class="caption">W.E.B. DuBois</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Dunham.jpg');" href=""><div class="caption">Katherine Dunham</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Elzy.jpg');" href=""><div class="caption">Ruby Elzy</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Fitzgerald.jpg');" href=""><div class="caption">Ella Fitzgerald</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Gibson.jpg');" href=""><div class="caption">Althea Gibson</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Gillespie.jpg');" href=""><div class="caption">Dizzy Gillespie</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Handy.jpg');" href=""><div class="caption">W.C. Handy</div></a>
+        <a class="portrait-tile" style="background-image:url('assets/images/portraits/Hayes.jpg');" href=""><div class="caption">Roland Hayes</div></a>          
+      </div>
+      <div class="modal modal-right">
+        <div class="section-jump">
+          <h2 class="title">Contents</h2>
+          <h1><a href="#1">Jump to page 1</a></h1>
+          <h1><a href="#2">Jump to page 2</a></h1>
+          <h1><a href="#3">Jump to page 3</a></h1>
+          <h1><a href="#4">Jump to page 4</a></h1>
+          <h1><a href="#5">Jump to page 5</a></h1>
+          <h1><a href="#6">Jump to page 6</a></h1>
+          <h1><a href="#7">Jump to page 7</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="page page-previous" data-page="">
+        <div class="content"></div>
+      </div>    
+      <div class="page page-current" data-page="">
+        <div class="content"></div>
+      </div>
+      <div class="page page-next" data-page="">
+        <div class="content"></div>
+      </div>
+    </div>
+    
+    <script src="cordova.js"></script>
+    <script type="text/javascript" src="assets/js/soundmanager2-jsmin.js"></script>
+    <script type="text/javascript" src="assets/js/pushtape-player.js"></script>   
+    <script type="text/javascript" src="assets/js/velocity.min.js"></script>   
+    <script type="text/javascript" src="assets/js/jquery.history.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.draggableTouch.js"></script>    
+    <script type="text/javascript" src="assets/js/jquery.imageTile.js"></script>    
+    <script type="text/javascript" src="assets/js/jquery.modalToggle.js"></script>
+    <script type="text/javascript" src="assets/js/application.js"></script> 
+    <script type="text/javascript" src="js/heroes.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>    
+    <script>
+        /**
+         * Setup the Pushtape Player
+         */
+        var pushtapePlayer = null; // Instance
+        soundManager.setup({
+          debugMode: true,   // disable or enable debug output
+          url: 'assets/js/swf/',       // path to directory containing SM2 SWF
+          useHighPerformance: true, // keep flash on screen, boost performance
+          preferFlash: true, // for visualization effects (smoother scrubber)
+          flashVersion: 9,
+          wmode: 'transparent', // transparent SWF, if possible
+          onready: function() {
+            // Initialize pushtape player when SM2 is ready
+            pushtapePlayer = new PushtapePlayer();
+            pushtapePlayer.init({
+              playNext: false, // stop after one sound, or play through list until end
+              autoPlay: false,  // start playing the first sound right away
+              repeatAll: false, // repeat playlist after last track
+            });
+          },
+          ontimeout: function() {
+            // Could not start. Missing SWF? Flash blocked? Show an error, etc.?
+            console.log('Error initializing the Pushtape player.');
+          }
+          
+        });       
+    </script>
+      
+    
+  </body>
+</html>
