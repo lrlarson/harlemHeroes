@@ -15,7 +15,7 @@ input[type="button"] {
   font-family:'Source Sans Pro';
   font-weight: 600;
   line-height: 35px;
-  letter-spacing: .1rem;
+  /*letter-spacing: .1rem;*/
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;

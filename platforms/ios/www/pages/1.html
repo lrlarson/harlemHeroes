@@ -31,17 +31,17 @@
     <div class="photo-credit">
       Photographs by Carl Van Vechten
     </div>
-    <div class="publisher-tag">EAKINS PRESS FOUNDATION</div>
   </div>
 </div>
+<div class="publisher-tag">EAKINS PRESS FOUNDATION</div>
+
 
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-  // Randomly rotates images every few seconds
-  $('.splash-page .portrait-tile').imageTile();
+  $('.splash-page .portrait-tile').imageTile({delayFrequency:900});
   setTimeout(function(){
-     $('.modal-cover').addClass('open'); 
+    $('.modal-cover, .publisher-tag').addClass('open');
   }, 2000);
 });
 </script>

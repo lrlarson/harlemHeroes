@@ -3,7 +3,11 @@
  */
 
 * {
-  /*-webkit-font-smoothing: antialiased;*/
+  /* http://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/ */
+  /*
+  -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  */
 }
 
 /* html is set to 62.5% so that all the REM measurements are based on 10px sizing. So basically 1.5rem = 15px */
@@ -129,7 +133,17 @@ hr.collapse-margin {
 }
 .first-letter::first-letter {
   font-size:150%;
-  font-weight:bold;
+  letter-spacing:.1rem;
+  line-height:1;
+  vertical-align:bottom;
+  display:inline-block;
+}
+span.drop-cap {
+  font-size:150%;
+  letter-spacing:.1rem;
+  line-height:1;
+  vertical-align:bottom;
+  display:inline-block;
 }
 .letter-spacing {
   letter-spacing:6px;

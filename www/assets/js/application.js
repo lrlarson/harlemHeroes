@@ -18,7 +18,7 @@ var re = new RegExp("[0-9][0-9]{0,5}");
 var animDuration;
 
 // Default animation speed range in ms
-var maxDuration = 400; // slower (no swipe contribution)
+var maxDuration = 350; // slower (no swipe contribution)
 var minDuration = 100; // faster (when swiping quickly)
 
 // Swipe speed in ms (for speeding up swipe animations)
@@ -32,7 +32,7 @@ var swipeScale = 25;
 var block = 0;
 
 // Global variable controlling jQuery's animate refresh rate
-//jQuery.fx.interval = 41; // 41 ~ 24fps
+jQuery.fx.interval = 41; // 41 ~ 24fps
 
 jQuery(document).ready(function($) {
 
@@ -49,7 +49,7 @@ jQuery(document).ready(function($) {
   $('a.previous').attr('href', '#' + String(firstPage)).addClass('hidden');
   prevPage = firstPage;
   // location.hash = location.hash ? location.hash : String('#' + firstPage);
-
+  
   // Trigger page transitions with left/right arrow key press
   $(document).keydown(function(e) {
       switch(e.which) {
@@ -75,12 +75,15 @@ jQuery(document).ready(function($) {
     $('body').removeClass('orientation-landscape').removeClass('orientation-portrait');
     if (window.orientation == 0 || window.orientation == 180) {
       $('body').addClass('orientation-portrait');
+      portraitFade(); 
     }
     else {
       $('body').addClass('orientation-landscape');
-    }
+      portraitFade();
 
+    }
   }).trigger('orientationchange');
+  
   
   /**
    * The application state is determined via location.hash and the hashchange event
@@ -105,6 +108,13 @@ jQuery(document).ready(function($) {
       if (animDuration < minDuration) {
         animDuration = minDuration;
       }
+      // Hack to make momentum scrolling work in iOS8
+      // http://stackoverflow.com/questions/26738764/ios8-safari-webkit-overflow-scrolling-touch-issue
+      var scrollable = $('.pane, .modal, .orientation-portrait .portrait-collapse');
+      scrollable.removeClass('momentum-scroll-on').addClass('momentum-scroll-off');
+      setTimeout(function(){
+        scrollable.removeClass('momentum-scroll-off').addClass('momentum-scroll-on');
+      }, 20);
 
 
       // When hash changes, if hash > prevHash advance
@@ -280,3 +290,52 @@ function stopMedia() {
   $("video").each(function () { this.pause() });  
 }
 
+// http://davidwalsh.name/javascript-debounce-function
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+/**
+ * For portrait mode pictures, the nav and caption should fade out after 2-3 seconds.
+ * Tapping or clicking will make the elements appear again.
+ */
+var portraitFade = function() {
+  // For portrait mode, fade out nav and titles after 2 seconds
+  var fadeTimer;
+  var fadeEls = function() {
+    var els = $('.orientation-portrait .modal-button, .orientation-portrait .portrait-img .caption');
+    els.show();
+    clearTimeout(fadeTimer);
+    // Limit fadeout behavior only to bio/portrait pages.
+    if ($('.orientation-portrait .page-current .portrait').length && !$('.modal-button.open').length) { 
+      fadeTimer = setTimeout(function(){
+        // Check again before fading, since it is possible a swipe or transition is occurring
+        if ($('.orientation-portrait .page-current .portrait').length && !$('.modal-button.open').length) {
+          els.fadeOut('slow');
+        }
+      }, 2500);
+    }
+  };
+  fadeEls();
+  if (!("ontouchstart" in document.documentElement)) {
+    $(document).on('click', fadeEls);
+  }
+  else {
+    $(document).on('touchstart', fadeEls);
+  }  
+};

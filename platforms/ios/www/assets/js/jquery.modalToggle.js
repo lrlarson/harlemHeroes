@@ -9,14 +9,17 @@
 ;(function($){
  
   $.fn.modalToggle = function(options) {
+    var collection = this;
+    
       // This is the easiest way to have default options.
     var settings = $.extend({
-      closeIconClass: 'fa fa-close'
+      closeIconClass: 'icon-close'
     }, options );      
-    
+
     var toggleModal = function() {
+      
       var $this = $(this);
-      var target = $this.data('toggle-target');
+      var target = $this.data('toggle-target');      
       // Grab markup if needed
       if ($this.attr('data-content')) {
         var content = $this.data('content');
@@ -38,6 +41,19 @@
         $this.addClass('close');
         $(target).addClass('close');        
       }
+
+      // Close all other modals (so you can never have two open)
+      // A little messy but the $(event.target).closest method isn't working for some reason
+      collection.each(function(){
+        if ($(this).hasClass('open') && $(this)[0] != $this[0]) {
+          var target = $(this).data('toggle-target');
+          var icon = $(this).data('icon-class');
+          $(this).html('<i class="'+ icon +'"></i>');
+          $(this).removeClass('open').addClass('close');
+          $(target).removeClass('open').addClass('close');           
+        }
+      });   
+    
       // Stop any audio/video playback when opening/closing modals
       stopMedia();
 
@@ -48,8 +64,7 @@
       }
       else {
         $(this).bind('load touchstart', toggleModal);
-      }
-      
+      }   
     });
   };
 })(jQuery);

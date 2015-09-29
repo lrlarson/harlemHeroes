@@ -45,6 +45,24 @@ body {
   transform: translateZ(0);  
 }
 
+/**
+ * If touch enabled this turns on momentum scrolling
+ */
+/*
+html.touch .modal,
+html.touch .pane {
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;  
+}
+*/
+.momentum-scroll-on {
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;    
+}
+.momentum-scroll-off {
+  overflow-y:auto;
+  -webkit-overflow-scrolling:auto;
+}
 
 
 /**
@@ -61,15 +79,13 @@ body {
  * On a page next/prev transition, the pages slide around to keep the motion fluid and uses
  * AJAX to load the next/prev pages as needed.
  */
+
 .page {
   width:100%;
   position:absolute;
   left:0;
   transform:translate3d(0,0,0);
-  
-  -webkit-transform: translate3d(0, 0, 0);
   backface-visibility:hidden;  
-  -webkit-backface-visibility: hidden;
   box-sizing:border-box;
 }
 .page-current {
@@ -85,13 +101,26 @@ body {
   opacity:1;
 }
 
-/**
- * If touch enabled this turns on momentum scrolling
- */
-html.touch .modal,
-html.touch .pane {
-    /*
-  overflow-y:scroll;
-  -webkit-overflow-scrolling: touch;  */
-}
 
+/**
+ * Portrait Mode
+ */
+.orientation-portrait .pane {
+}
+.orientation-portrait .portrait-collapse {
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.orientation-portrait .portrait-collapse .pane {
+  position:static;
+  float:none;
+  width:auto;
+  height:auto;
+  overflow:auto;  
+}
+.orientation-portrait .orientation-portrait-hidden {
+  display:none;
+}
+.orientation-landscape .orientation-landscape-hidden {
+  display:none;
+}

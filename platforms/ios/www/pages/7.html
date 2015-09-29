@@ -1,5 +1,6 @@
-<a class="modal-button no-user-select modal-toggle-audio" data-icon-class="fa fa-volume-up" data-toggle-target=".modal-audio"><i class="fa fa-volume-up"></i></a>
-<a class="modal-button no-user-select modal-toggle-video" data-icon-class="fa fa-youtube-play" data-toggle-target=".modal-video"><i class="fa fa-youtube-play"></i></a>
+<a class="modal-button no-user-select modal-toggle-text" data-icon-class="icon-portrait" data-toggle-target=".portrait-text"><i class="icon-portrait"></i></a>
+<a class="modal-button no-user-select modal-toggle-audio" data-icon-class="icon-audio" data-toggle-target=".modal-audio"><i class="icon-audio"></i></a>
+<a class="modal-button no-user-select modal-toggle-video" data-icon-class="icon-video" data-toggle-target=".modal-video"><i class="icon-video"></i></a>
 <div class="modal modal-audio">
       <h2 class="text-center">Marian Anderson Sings at Lincoln Memorial</h2>
       <h3 class="text-center">1939</h3>
@@ -32,43 +33,44 @@
         <li><a href="assets/audio/MarianAnderson-DieForelle1936.mp3">Marian Anderson - Die For Elle (1936)</a></li>
         <li class="last"><a href="assets/audio/MarianAnderson-EsIstVollbracht.mp3">Marian Anderson - Es Ist Vollbracht</a></li>
       </ul>  
-</div> 
-   
+</div>      
 <div class="modal modal-video">
   <h2 class="text-center">Marian Anderson Sings at Lincoln Memorial</h2>
   <h3 class="text-center date">1939</h3>
   <video width="100%" controls="controls" poster="assets/video/Marian Anderson Sings at Lincoln Memorial.png">
-    <source src="assets/video/Marian Anderson Sings at Lincoln Memorial.mp4" type="video/mp4"></source>
+    <source src="assets/video/Marian Anderson Sings at Lincoln Memorial.mp4" type="video/mp4">
   </video>
-  <p class="text-left">
+  <p class="text-left video-caption">
     Marian Anderson, contralto, was denied the right to perform at Constitution Hall by the DAR because of her color. Instead, and at the urging of Eleanor Roosevelt, Harold Ickes permitted her to perform at the Lincoln Memorial on April 9, 1939.    
   </p>
   <hr>
   <h2 class="text-center video-title">Marian Anderson Sings the National Anthem</h2>
   <h3 class="text-center date">1957</h3>
   <video width="100%" controls="controls" poster="assets/video/Marian Anderson sings the National Anthem.png">
-    <source src="assets/video/Marian Anderson sings the National Anthem.mp4" type="video/mp4"></source>
+    <source src="assets/video/Marian Anderson sings the National Anthem.mp4" type="video/mp4">
   </video>
+
 </div>      
-    
+      
 
 
 <div class="portrait container-fluid">
   <div class="row"> 
     <div class="pane col-xs-6 light-background portrait-text">
       <h3 class="text-center">MARIAN ANDERSON</h3>
-      <h4 class="text-center">1897-1993</h4>
+      <h4 class="text-center">1897-1993</h3>
       <q class="text-italic">It's so high you can't get over it<br/>
-So low, you can't get under it,<br/>
-And so wide you can't get round it ...<br/>
-You must come through by the living gate ...</q>
+      So low, you can't get under it,<br/>
+      And so wide you can't get round it ...<br/>
+      You must come through by the living gate ...</q>
       <div class="text-right quote-caption">[from an old song]</div>
       <p class="first-letter">
-After becoming a world-famous contralto, she continued to study with noted teachers between concert appearances in Europe. In 1939, when refused the use of Constitution Hall in Washington, D.C., by the D.A.R., she performed outdoors at the Lincoln Memorial. Her autobiography is entitled <span class="italic">My Lord, What a Morning.</span></p>
+        After becoming a world-famous contralto, she continued to study with noted teachers between concert appearances in Europe. In 1939, when refused the use of Constitution Hall in Washington, D.C., by the D.A.R., she performed outdoors at the Lincoln Memorial. Her autobiography is entitled <span class="italic">My Lord, What a Morning.</span>
+      </p>
     </div>
     
-    <div class="pane col-xs-6 light-background photo zero-padding zero-margin ">
-        <div class="portrait-img" style="background-image:url('assets/images/portraits/Anderson.jpg');"><div class="caption">1947</div><img class="flip-icon" src="assets/images/flip-icon.png"/></div>
+    <div class="pane col-xs-6 light-background photo zero-padding zero-margin portrait-img-wrap">
+        <div class="portrait-img" style="background-image:url('assets/images/portraits/Anderson.jpg');"><div class="caption"><h3>MARIAN ANDERSON</h3><span class="date">1947<span></div><img class="flip-icon" src="assets/images/flip-icon.png"/></div>
     </div>
   </div>
 </div>
@@ -77,11 +79,10 @@ After becoming a world-famous contralto, she continued to study with noted teach
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-  $('.modal-toggle-audio, .modal-toggle-video').modalToggle();
-  pushtapePlayer.init();  
-});
-
-      
+  $('.modal-toggle-audio, .modal-toggle-video, .modal-toggle-text').modalToggle();
+  stopMedia();
+  pushtapePlayer.init();
+}); 
 </script>
 
  

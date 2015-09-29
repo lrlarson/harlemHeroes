@@ -72,7 +72,8 @@
                 element.velocity({
                   translateX: ["0%", (delta/width * 100) + '%']
                 }, animDuration, function() {   
-                });                
+                });
+                
             };
             
             element.bind("touchstart", function(e) {
@@ -137,7 +138,7 @@
 
             var offset = null;
             var ogPos = element.position();
-            
+
             var move = function(e) {
               var delta = e.pageX - offset.x;
               element.css('transform', 'translateX(' + (delta/width * 100) + '%)');
@@ -166,9 +167,10 @@
               }
               // Bounce back window
               element.velocity({
-                  translateX: ["0%", (delta/width * 100) + '%']
+                translateX: ["0%", (delta/width * 100) + '%']
               }, animDuration, function() {   
               });
+              
             };
             
             element.bind("mousedown", function(e) {
