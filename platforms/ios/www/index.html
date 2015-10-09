@@ -7,13 +7,27 @@
         <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
 
-        <link rel="stylesheet" href="assets/css/base/normalize.css" type="text/css"/>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600,300' rel='stylesheet' type='text/css'>
+        <!-- Exclude font CSS from aggregation since they reference relative paths and it's a headache -->
+        <!-- link href="assets/css/base/font/source-sans-pro/styles.css" rel="stylesheet" type="text/css"/ -->
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600,300" rel="stylesheet" type="text/css">        
         <link rel="stylesheet" href="assets/css/base/font/centaur/styles.css" type="text/css"/>
         <link rel="stylesheet" href="assets/css/base/font/centaur-italic/styles.css" type="text/css"/>
         <link rel="stylesheet" href="assets/css/base/font/harlemheroic/styles.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/base/font/font-awesome/css/font-awesome.min.css">          
+        <!-- FF bug related to keyframes requires loading states in a separate file. https://bugzilla.mozilla.org/show_bug.cgi?id=830056 -->
         <link rel="stylesheet" href="assets/css/base/states.css" type="text/css"/>
-        <!-- link rel="stylesheet" href="assets/css/base/debug.css" type="text/css"/ -->
+        
+        <!-- For production, use lessc to aggregate CSS and minify result using http://cssminifier.com/ -->
+        <!-- Watchout for relative src urls in CSS when aggregating -->
+
+        <link rel="stylesheet" href="assets/css/main.min.css" type="text/css" />
+
+        <!-- For development disable production CSS and enable development CSS -->
+        <!-- 
+        <link rel="stylesheet" href="assets/css/base/normalize.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="assets/css/base/states.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/base/debug.css" type="text/css"/>
         
         <link rel="stylesheet" href="assets/css/base/typography.css" type="text/css"/>
         <link rel="stylesheet" href="assets/css/base/utility.css" type="text/css"/>        
@@ -33,9 +47,12 @@
         <link rel="stylesheet" href="assets/css/components/messages.css" type="text/css"/>
         <link rel="stylesheet" href="assets/css/components/modal.css" type="text/css"/>
         <link rel="stylesheet" href="assets/css/components/pushtape-player.css" type="text/css"/>
-        <link rel="stylesheet" href="assets/css/base/font/font-awesome/css/font-awesome.min.css">
-          
+        
         <link rel="stylesheet" href="assets/css/theme/colors.css" type="text/css"/>
+        -->
+      
+        
+        
   </head>
 
   <body class="animations">
@@ -83,13 +100,13 @@
     </header>
 
     <div class="wrapper">
-      <div class="page page-previous" data-page="">
+      <div class="page page-previous slide" data-page="">
         <div class="content"></div>
       </div>
-      <div class="page page-current" data-page="">
+      <div class="page page-current slide" data-page="">
         <div class="content"></div>
       </div>        
-      <div class="page page-next" data-page="">
+      <div class="page page-next slide" data-page="">
         <div class="content"></div>
       </div>
     </div>
@@ -99,8 +116,7 @@
     <script type="text/javascript" src="assets/js/pushtape-player.js"></script>   
     <script type="text/javascript" src="assets/js/velocity.min.js"></script>   
     <script type="text/javascript" src="assets/js/jquery.history.js"></script>
-    <!--- draggable touch--->
-    <script type="text/javascript" src="assets/js/jquery.draggableTouch-nodrag.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.draggableTouch-nodrag.js"></script>    
     <script type="text/javascript" src="assets/js/jquery.imageTile.js"></script>    
     <script type="text/javascript" src="assets/js/jquery.modalToggle.js"></script>
     <script type="text/javascript" src="assets/js/application.js"></script>

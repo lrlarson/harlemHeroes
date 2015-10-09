@@ -33,6 +33,7 @@
         $this.html('<i class="'+ settings.closeIconClass +'"></i>');
         $this.removeClass('close');
         $(target).removeClass('close');
+        scrollRefresh();
       }
       else {
         // Close the modal

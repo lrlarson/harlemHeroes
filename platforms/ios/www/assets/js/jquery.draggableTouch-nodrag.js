@@ -20,7 +20,7 @@
     var startTime, endTime, duration, diff;
 
     // Threshold is the pixel distance element must be dragged to trigger transition
-    var threshold = 50;
+    var threshold = 30;
     
     // pressTime is length of time in millseconds touch/click occurs, useful for
     // detecting fast swipes in a direction (i.e. fast touchscreen swipes)
@@ -50,34 +50,17 @@
             
             var end = function(e) {
                 //e.preventDefault();
-                if (!stopDrag) {  
-                  var orig = e.originalEvent;
-                  var delta = orig.changedTouches[0].pageX - offset.x;
-
-                  element.trigger("dragend", {
-                    translateX:  (delta/width * 100) + '%'
-                  });
-                  endTime = new Date().getTime();
-                  duration = endTime - startTime;
-                  var distance = orig.changedTouches[0].pageX - offset.x;
-                  swipeSpeed = Math.floor(abs(distance)/duration) * swipeScale;
-                  if (!block && (distance < -threshold) || (distance < 0 && duration < pressTime)) {
-                    location.hash = $('a.next').attr('href');
-                  }
-                  else if (!block && (distance > threshold) || (distance > 0 && duration < pressTime)) {
-                    location.hash = $('a.previous').attr('href');
-                  }
-                }  
+                
                 // Bounce back window
+                /*
                 element.velocity({
                   translateX: 0
                 }, animDuration, function() {   
                 });
-                
+                */
             };
             
             element.bind("touchstart", function(e) {
-              swipeSpeed = 0;
               var orig = e.originalEvent;
               var pos = $(this).position();
               startTime = new Date().getTime();
@@ -99,18 +82,22 @@
                 var distance = abs(orig.changedTouches[0].pageX - offset.x);
                 var scrollDist = abs(orig.changedTouches[0].pageY - offset.y);
                 var delta = orig.changedTouches[0].pageX - offset.x;
+                
                 // e.preventDefault() for touchmove will prevent normal vertical scrolling so
                 // we need to make sure user isn't trying to scroll up/down before hijacking it
-
                 if (distance > scrollDist) {
                   e.preventDefault();
-                  // element.css('transform', 'translateX(' + (delta/width * 100) + '%)');
-
-                  stopDrag = 0;
+                  endTime = new Date().getTime();
+                  duration = endTime - startTime;
+                  if (!block && (delta < -threshold) && duration < pressTime) {
+                    location.hash = $('a.next').attr('href');
+                  }
+                  else if (!block && (delta > threshold) && duration < pressTime) {
+                    location.hash = $('a.previous').attr('href');
+                  }                   
                 }
                 else {
                   element.css('transform', 'translateX(0%)');
-                  stopDrag = 1;
                 }
             });
 
@@ -142,35 +129,32 @@
             var move = function(e) {
               var delta = e.pageX - offset.x;
               //element.css('transform', 'translateX(' + (delta/width * 100) + '%)');
+              endTime = new Date().getTime();
+              duration = endTime - startTime;
+              if (!block && (delta < -threshold) && (duration < pressTime)) {
+                location.hash = $('a.next').attr('href');
+              }
+              else if (!block && (delta > threshold) && (duration < pressTime)) {
+                location.hash = $('a.previous').attr('href');
+              }              
             };
             
             var up = function(e) {
               element.removeClass('grabbing');
-
               element.unbind("mouseup", up);
               $(document).unbind("mousemove", move);
-              var delta = e.pageX - offset.x;
-
+              /*
               element.trigger("dragend", {
                 translateX:  (delta/width * 100) + '%'
               });
-              endTime = new Date().getTime();
-              duration = endTime - startTime;
-              distance = e.pageX - offset.x;
-              swipeSpeed = Math.floor(abs(distance)/duration) * swipeScale;
-
-              if ((distance < -threshold) || (distance < 0 && duration < pressTime)) {
-                location.hash = $('a.next').attr('href');
-              }
-              else if ((distance > threshold) || (distance > 0 && duration < pressTime)) {
-                location.hash = $('a.previous').attr('href');
-              }
+              */
               // Bounce back window
+              /*
               element.velocity({
                 translateX: 0
               }, animDuration, function() {   
               });
-              
+              */
             };
             
             element.bind("mousedown", function(e) {

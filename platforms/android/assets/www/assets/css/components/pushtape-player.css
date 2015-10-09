@@ -1,0 +1,156 @@
+﻿
+.pt-previous,
+.pt-next {
+  font-size:3.75rem;
+  margin:4rem;
+  cursor:pointer;
+  display:inline-block;
+}
+.pt-play-pause {
+  font-size:2em;
+  cursor:pointer;
+  display:inline-block;
+  line-height:8rem;
+  text-align:center;
+  padding-left:10px;
+}
+.pt-play-pause-wrapper {
+  border:solid #444444 1px;
+  border-radius:50%;
+  width:8rem;
+  height:8rem;
+  display:inline-block;
+}
+/* Hide/Show */
+.pause-btn,
+.pt-play-pause.pt-playing .play-btn {
+  display:none;
+} 
+.pt-play-pause.pt-playing .pause-btn {
+  display:inline-block;
+}
+.pause-btn {
+  position:relative;
+  left:-5px;
+  letter-spacing:-.005em;
+}
+.pt-scrubber {
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+.pt-statusbar,
+.pt-current-time,
+.pt-duration {
+  display:inline-block;
+  vertical-align:middle;
+}
+.pt-scrubber .pt-statusbar {
+  height: .2rem;
+  position: relative;
+  background:#41403f;
+  width:70%;
+  margin-left:2rem;
+  margin-right:2rem;
+}
+.pt-current-time,
+.pt-duration {
+  text-align:center;
+}
+.pt-scrubber.dragging .pt-statusbar {
+  cursor: grabbing;
+  cursor:-webkit-grabbing;
+}
+.pt-scrubber .pt-statusbar .pt-position,
+.pt-scrubber .pt-statusbar .pt-loading {
+  position: absolute;    
+  height: 100%;
+  left: 0;
+  top: 0;
+  width:0;
+}
+.pt-scrubber .pt-statusbar .pt-position {
+  background-color: #924e15;
+  position:relative;
+}
+.pt-scrubber .pt-statusbar .pt-loading {
+  background-color:#F1F1F1;
+}
+.pt-scrubber .pt-statusbar .pt-handle {
+  position:absolute;
+  width:1em;
+  height:1em;
+  right:-.5em; /* Half of width */
+  top:-.45em; /* Slightly less than half of height*/
+  background:#fff;
+  border-radius:50%;
+  border:solid 1px #999;
+  transition:  all .1s;
+  cursor: pointer;
+}
+.pt-time {
+  font-size:1.4rem;
+  font-family:'Source Sans Pro', sans-serif;
+}
+.pt-current-track-title {
+  color:#DDD;
+  font-size:1.7em;
+  margin-top:-.5em;
+}
+.pt-list {
+  clear:both;
+  margin:0;
+  padding:0;
+  list-style-type:none;
+  text-align:left;
+  margin-left:-75px;
+  margin-right:-75px;
+  font-family:'Source Sans Pro', sans-serif;
+  font-size:1.5rem;
+  margin-top:3.5rem;
+
+}
+.pt-list a {
+  display:block;
+  padding:2rem 8rem;
+  border-top:solid 1px #000;
+}
+.pt-list li.last a {
+}
+.pt-list a.pt-playing, 
+.pt-list a.pt-paused {
+  background:#000;
+}
+.pt-link.pt-loading { opacity:.2;}
+.pt-link.pt-playing { opacity: 1; }
+.pt-link.pt-paused  { opacity:1;}
+.pt-link.pt-cue { color:red;}
+
+/** Not sure if loading in Font Awesome icons this way will break in certain
+  *  browsers, but going for it.
+  *  See: http://fortawesome.github.io/Font-Awesome/cheatsheet
+  */
+
+
+.pt-play-pause.pt-buffering,
+.pt-link.pt-buffering {
+  -webkit-animation: buffering 1.4s infinite;
+  animation:  buffering 1.4s infinite;
+}
+
+/* Utility class to hide elements if no links found on page load */
+.pt-hide {
+  display:none;
+}
+
+/* Buffering animation */
+@-webkit-keyframes buffering {
+  0%   { opacity:1; }
+  50%   { opacity:.5; }
+  100% { opacity:1; }
+}
+
+@keyframes buffering {
+  0%   { opacity:1; }
+  50% { opacity:.5; }
+  100% { opacity:1; }
+}

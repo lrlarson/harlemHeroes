@@ -44,6 +44,12 @@ body {
   overflow-x:hidden;
   transform: translateZ(0);  
 }
+/*
+.pane {
+  overflow-y:scroll;
+ -webkit-overflow-scrolling: touch;
+}
+*/
 
 /**
  * If touch enabled this turns on momentum scrolling
@@ -55,15 +61,19 @@ html.touch .pane {
   -webkit-overflow-scrolling: touch;  
 }
 */
-.momentum-scroll-on {
-  overflow-y:scroll;
-  -webkit-overflow-scrolling: touch;    
-}
 .momentum-scroll-off {
   overflow-y:auto;
   -webkit-overflow-scrolling:auto;
 }
+.momentum-scroll-on {
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;    
+}
 
+/* http://patrickmuff.ch/blog/2014/10/01/how-we-fixed-the-webkit-overflow-scrolling-touch-bug-on-ios/ */
+.inner-scroll {
+ height: calc(100% + 1px); 
+}
 
 /**
  * Note that not all cursor types are cross browser.
@@ -84,23 +94,25 @@ html.touch .pane {
   width:100%;
   position:absolute;
   left:0;
-  transform:translate3d(0,0,0);
-  backface-visibility:hidden;  
-  box-sizing:border-box;
+  bottom:0;
+  top:0;
+  right:0;
 }
 .page-current {
-  left:0;
   opacity:1;
+  -webkit-transform:translateX(0);  
+  transform:translateX(0);  
 }
 .page-next {
-  left:100%;
+  -webkit-transform:translateX(100%);
+  transform:translateX(100%);
   opacity:1;
 }
 .page-previous {
-  left:-100%;
+  -webkit-transform:translateX(-100%);
+  transform:translateX(-100%);
   opacity:1;
 }
-
 
 /**
  * Portrait Mode

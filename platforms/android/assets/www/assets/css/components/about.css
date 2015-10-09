@@ -1,0 +1,65 @@
+.book {
+  background-color: #cfcbc7;
+  box-shadow: 5px 5px 5px #888888;
+  padding:40px 25px;
+  margin-bottom:60px;
+  margin-top:20px;
+  width:350px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.book h1 {
+  color:#a84e15;
+  font-size:4.1rem;
+  margin:1.6rem;
+  line-height:1;
+-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;  
+}
+
+.book .photo-credit {
+  font-style:italic;
+  color:#444444;
+  border-style:solid;
+  border-color:#837f7e;
+  border-width:2px 0 2px 0;
+  font-size:2rem;
+  margin:.6em 30px;
+  padding:6px 0;
+}
+
+.about-page .button-position {
+  position:absolute;
+  bottom:12%;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+.about-page h3 {
+  color:#000;
+  font-weight:bold;
+  font-size:2rem;
+  letter-spacing:.2rem;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;  
+}
+
+/**
+ * Portrait mode
+ */
+
+.orientation-portrait .about-page .button-position {
+  position:static;
+  margin-top:40px;
+  display:block;
+  text-align:center;
+}
+.orientation-portrait .about-text {
+  max-width:550px;
+  margin-left:auto;
+  margin-right:auto;
+}

@@ -30,6 +30,20 @@
                         }
                     ]
                 }
+            },
+            "framework": {
+                "parents": {
+                    "libz.dylib": [],
+                    "CFNetwork.framework": [],
+                    "SystemConfiguration.framework": [],
+                    "MobileCoreServices.framework": [],
+                    "WebKit.framework": []
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "NSAppTransportSecurity": []
+                }
             }
         }
     },

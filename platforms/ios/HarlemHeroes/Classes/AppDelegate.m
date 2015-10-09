@@ -21,7 +21,7 @@
 //  AppDelegate.m
 //  HarlemHeroes
 //
-//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Created by Larson Associates 2015.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 

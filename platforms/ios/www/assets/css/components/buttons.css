@@ -12,7 +12,7 @@ input[type="button"] {
   color: #000;
   text-align: center;
   font-size: 13px;
-  font-family:'Source Sans Pro';
+  font-family:'Source Sans Pro', 'Helvetica', sans-serif;
   font-weight: 600;
   line-height: 35px;
   /*letter-spacing: .1rem;*/

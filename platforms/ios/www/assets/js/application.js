@@ -108,15 +108,7 @@ jQuery(document).ready(function($) {
       if (animDuration < minDuration) {
         animDuration = minDuration;
       }
-      // Hack to make momentum scrolling work in iOS8
-      // http://stackoverflow.com/questions/26738764/ios8-safari-webkit-overflow-scrolling-touch-issue
-      var scrollable = $('.pane, .modal, .orientation-portrait .portrait-collapse');
-      scrollable.removeClass('momentum-scroll-on').addClass('momentum-scroll-off');
-      setTimeout(function(){
-        scrollable.removeClass('momentum-scroll-off').addClass('momentum-scroll-on');
-      }, 20);
-
-
+      
       // When hash changes, if hash > prevHash advance
       // For advancing, slide next page in, current page to the left
       // change page-next to be page-current
@@ -130,81 +122,44 @@ jQuery(document).ready(function($) {
        */
       if (page == prevPage + 1 && page <= lastPage && event.type != 'load') {
         // Moving right (next page)
+        next.addClass('in');  
+        current.addClass('out');  
         // Next -> Current
-        next.velocity({
-          left: "0"
-        }, {
-          duration:animDuration,
-          complete: function() {
-            next.addClass('page-current').removeClass('page-next').css('left', '0').data('page', page);
-          }
-        });
+        next.hide().removeClass('page-next').addClass('page-current').show().data('page', page);
         // Current -> Previous
-        current.velocity({
-          left: "-100%"
-        }, {
-          duration:animDuration,
-          complete: function() {
-            current.addClass('page-previous').removeClass('page-current').css('left', '-100%').data('page', page - 1);
-          }
-        });
-        // Previous -> Next (circles back)
-        prev.velocity({
-          left: "-200%"
-        }, {
-          duration:animDuration,
-          complete:function() {
-            prev.removeClass('hidden').addClass('page-next').removeClass('page-previous').css('left', '100%').data('page', page + 1);
-            loadPage('.page-next');
-            if (page >= lastPage) {
-              // Special case - we want to hide the "next" page if page == lastPage
-              prev.addClass('hidden');
-            }
-            else {
-              prev.removeClass('hidden');
-            }            
-          }
-        });
+        current.hide().removeClass('page-current').addClass('page-previous').show().data('page', page - 1);
+        // Previous -> Next (jumps back)
+        prev.removeClass('hidden').hide().removeClass('page-previous').addClass('page-next').show().data('page', page + 1);
+        if (page >= lastPage) {
+          // Special case - we want to hide the "next" page if page == lastPage
+          prev.addClass('hidden');
+        }
+        else {
+          prev.removeClass('hidden');
+        }
+        loadPage('.page-next');
 
       }
       else if ((page == prevPage - 1) && page >= firstPage && event.type != 'load') {
         // Moving left (previous page)
+        prev.addClass('in reverse');
+        current.addClass('out reverse');
         // Previous -> Current
-        prev.velocity({
-          left: "0"
-        }, {
-          duration: animDuration,
-          complete: function() {
-            prev.addClass('page-current').removeClass('page-previous').css('left', '0').data('page', page);
-          }
-        });
+        prev.hide().removeClass('page-previous').addClass('page-current').show().data('page', page);
         // Current -> Next
-        current.velocity({
-          left: "100%"
-        },
-          {
-          duration: animDuration,
-          complete: function() {
-            current.addClass('page-next').removeClass('page-current').css('left', '100%').data('page', page + 1);
-          }
-        });
-        // Current -> Next (circles back)
-        next.velocity({
-          left: "200%"
-        }, {
-          duration: animDuration,
-          complete: function() {
-            next.addClass('page-previous').removeClass('page-next').css('left', '-100%').data('page', page - 1);
-            loadPage('.page-previous');
-            if (page <= firstPage) {
-              // Special case - we want to hide the "previous" page if page == firstPage
-              next.addClass('hidden');
-            }
-            else {
-              next.removeClass('hidden');
-            }
-          }
-        });        
+        current.hide().removeClass('page-current').addClass('page-next').show().data('page', page + 1);
+        // Next -> Prev (jumps forward)
+        next.hide().removeClass('page-next').addClass('page-previous').show().data('page', page - 1);
+        if (page <= firstPage) {
+          // Special case - we want to hide the "previous" page if page == firstPage
+          next.addClass('hidden');
+        }
+        else {
+          next.removeClass('hidden');
+        }
+        loadPage('.page-previous');
+
+      
       }
       else {
         // If the hashchange is not sequential, just load what we would expect with a simple fade in, no sliding
@@ -213,7 +168,7 @@ jQuery(document).ready(function($) {
         next.data('page', page + 1);
         loadPage('.page');
       }
-      
+
       // Update prev/next buttons
       setTimeout(function(){
         if (page < lastPage) {
@@ -230,6 +185,13 @@ jQuery(document).ready(function($) {
         }
         block = 0;
         prevPage = page;
+        
+        // Remove animation classes
+        next.removeClass('in out reverse');
+        prev.removeClass('in out reverse');
+        current.removeClass('in out reverse');
+      scrollRefresh();
+
       }, animDuration);
       
 
@@ -339,3 +301,21 @@ var portraitFade = function() {
     $(document).on('touchstart', fadeEls);
   }  
 };
+
+
+// Hack to make momentum scrolling work in iOS8
+// [1] http://stackoverflow.com/questions/26738764/ios8-safari-webkit-overflow-scrolling-touch-issue
+// [2] http://slytrunk.tumblr.com/post/33861403641/ios6-web-app-flickering-with
+// [3] http://stackoverflow.com/questions/17747239/ios-flicker-bug-when-the-css-overflowscroll-is-changed-to-overflowhidden
+// [4] http://patrickmuff.ch/blog/2014/10/01/how-we-fixed-the-webkit-overflow-scrolling-touch-bug-on-ios/
+function scrollRefresh() {
+  // Method [4]
+  $('.pane').not($('.scroll-applied')).wrapInner('<div class="inner-scroll"></div>').addClass('scroll-applied momentum-scroll-on');
+  
+  // Method [1]
+  var scrollable = $('.modal, .orientation-portrait .portrait-collapse');
+  scrollable.removeClass('momentum-scroll-on').addClass('momentum-scroll-off');
+  setTimeout(function(){
+    scrollable.removeClass('momentum-scroll-off').addClass('momentum-scroll-on');
+  }, 10);
+}
