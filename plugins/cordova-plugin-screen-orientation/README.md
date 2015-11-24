@@ -64,6 +64,12 @@ For this plugin to follow the full API events should be fired on the screen obje
 iOS and BB10 do not currently support events on the _screen_ object so custom event
 handling will need to be added (Suggestions welcome!).
 
+### Example usage
+
+    window.addEventListener("orientationchange", function(){
+        console.log('Orientation changed to ' + screen.orientation);
+    });
+
 ## Android Notes
 
 The __screen.orientation__ property will not update when the phone is [rotated 180 degrees](http://www.quirksmode.org/dom/events/orientationchange.html).
@@ -94,7 +100,17 @@ Wraps the com.blackberry.app plugin functions, auto installed as a dependancy.
 
 Windows phone does not support specification or primary and secondary orientations.  If called with a specific orientation the plugin will just apply the landscape or portait orientation.
 
+## W8.1 Notes
+
+Windows 8.1 Applicaitons (runtime/metro applications) will only display orientation changes if the device has some sort of accelerometer.  The internal state of the "orientation" will still be kept, but the actual screen won't rotate unless the device supports it.
+
 # Changelog
+
+## 1.4.0
+* Added Windows 8.1 Support
+* [#54](https://github.com/gbenvenuti/cordova-plugin-screen-orientation/pull/54) Background thread for ios
+* [#64](https://github.com/gbenvenuti/cordova-plugin-screen-orientation/pull/64) Orientation naming bug fixed
+* Add portrait upside down to iOS default orientations
 
 ## 1.3.5-6
 * Plugin added to npm

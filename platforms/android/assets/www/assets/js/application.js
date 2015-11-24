@@ -166,7 +166,9 @@ jQuery(document).ready(function($) {
         prev.data('page', page - 1);
         current.data('page', page);
         next.data('page', page + 1);
-        loadPage('.page');
+        loadPage('.page-current', true);
+        loadPage('.page-previous');
+        loadPage('.page-next');
       }
 
       // Update prev/next buttons
@@ -203,7 +205,9 @@ jQuery(document).ready(function($) {
 /**
  * Load the page contents via ajax
  */
-function loadPage(selector) {
+function loadPage(selector, fade) {
+  var doFade = fade || false;
+  
   // Load individual content region with AJAX based on data-page attribute
   $(selector).each(function(index){
     var $this = $(this);
@@ -214,14 +218,21 @@ function loadPage(selector) {
       
       // Originally it seemed good to hide/show content as it loaded (fadeIn, etc)
       // but it actually feels snappier to avoid it
-      // $this.find('.content').hide();
-      
+      if (doFade) {
+        $this.find('.content').hide();
+      }
       // Loader (seems to distract more than help)
       // $this.find('.content').html('<div class="pane col-xs-12"><div class="loader"></div>');
       var jqxhr = $.get(url, function() {
       })
         .done(function(data) {
-          $this.find('.content').html($(data));
+          if (doFade) {
+            $this.find('.content').html($(data)).velocity('fadeIn', {duration: 300});
+          }
+          else {
+            $this.find('.content').html($(data));
+          }
+          
         })
         .fail(function(data, status) {        
           $this.find('.content').html('<div class="pane col-xs-12"><div class="messages error">'+ data.status + ' ' + status + ' — Page could not be loaded.</div></div>');

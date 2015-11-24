@@ -26,7 +26,8 @@
   float:left;
   display:block;
   position:static;
-  transform: translateZ(0);    
+  -webkit-transform : translate3d(0,0,0);  
+  transform : translate3d(0,0,0);  
 }
 
 /* Tiles for modal menu*/

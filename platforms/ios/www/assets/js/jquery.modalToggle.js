@@ -16,7 +16,8 @@
       closeIconClass: 'icon-close'
     }, options );      
 
-    var toggleModal = function() {
+    var toggleModal = function(e) {
+      e.preventDefault();
       
       var $this = $(this);
       var target = $this.data('toggle-target');      
@@ -26,21 +27,41 @@
         var html = $(content).html();
         $(target).html(html);    
       }
+      
+      var closeModal = function() {
+        // Close the modal
+        var icon = $this.data('icon-class');
+        $this.html('<i class="'+ icon +'"></i>');
+        $this.addClass('close').removeClass('open');
+        $(target).addClass('close').removeClass('open');
+        // Stop any audio/video playback when opening/closing modals
+        stopMedia();        
+      }      
+      
+      
+      // Close parent when interior link clicked.
+      $(target).find('a').not($('[class^=pt-], [target="_blank"]')).on('click', function(){
+        // Close the modal
+        var icon = $this.data('icon-class');
+        $this.html('<i class="'+ icon +'"></i>');
+        $this.addClass('close').removeClass('open');
+        $(target).addClass('close').removeClass('open');  
+      });
+        
       // Open the modal      
       $(target).toggleClass('open');
       $this.toggleClass('open');
       if ($this.hasClass('open')) {
         $this.html('<i class="'+ settings.closeIconClass +'"></i>');
-        $this.removeClass('close');
-        $(target).removeClass('close');
+        $this.addClass('open').removeClass('close');
+        $(target).addClass('open').removeClass('close');
         scrollRefresh();
+        // Stop any audio/video playback when opening/closing modals
+        stopMedia();
       }
       else {
         // Close the modal
-        var icon = $this.data('icon-class');
-        $this.html('<i class="'+ icon +'"></i>');
-        $this.addClass('close');
-        $(target).addClass('close');        
+        closeModal();      
       }
 
       // Close all other modals (so you can never have two open)
@@ -53,10 +74,16 @@
           $(this).removeClass('open').addClass('close');
           $(target).removeClass('open').addClass('close');           
         }
-      });   
-    
-      // Stop any audio/video playback when opening/closing modals
-      stopMedia();
+      });
+      // Close modal whenever the underlying page content is clicked. Depends on Fastclick.js to work correctly.
+      $('.pane').not('.orientation-portrait .portrait-text').on('click', function() {
+        closeModal();  
+      });
+      // Close modal during page transition
+      $(window).on('hashchange', function() {
+        closeModal(); 
+      });      
+
 
     }
     return this.each(function(index) {

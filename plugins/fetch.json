@@ -7,14 +7,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-screen-orientation": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-screen-orientation"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-console": {
         "source": {
             "type": "registry",
@@ -37,6 +29,14 @@
             "id": "cordova-plugin-webserver"
         },
         "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-screen-orientation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-screen-orientation"
+        },
+        "is_top_level": true,
         "variables": {}
     }
 }

@@ -8,7 +8,7 @@ cordova.define("cordova-plugin-screen-orientation.screenorientation.ios", functi
         'landscape': [-90,90],
         'landscape-primary': [-90],
         'landscape-secondary': [90],
-        'default': [-90,90,0]
+        'default': [-90,90,0,180]
     };
 
 screenOrientation.setOrientation = function(orientation) {

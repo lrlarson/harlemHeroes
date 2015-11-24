@@ -45,22 +45,22 @@ screenOrientation.setOrientation = function(orientation) {
     console.log('setOrientation not supported on device');
 };
 
-function addScreenOrientationApi(obj) {
-    if (obj.unlockOrientation || obj.lockOrientation) {
+function addScreenOrientationApi(screenObject) {
+    if (screenObject.unlockOrientation || screenObject.lockOrientation) {
         return;
     }
 
-    obj.lockOrientation = function(orientation) {
+    screenObject.lockOrientation = function(orientation) {
         if (Orientations.indexOf(orientation) == -1) {
             console.log('INVALID ORIENTATION', orientation);
             return;
         }
-        screenOrientation.currOrientation = orientation;
+        screenOrientation.currOrientation = screenObject.orientation = orientation;
         screenOrientation.setOrientation(orientation);
     };
 
-    obj.unlockOrientation = function() {
-        screenOrientation.currOrientation = 'unlocked';
+    screenObject.unlockOrientation = function() {
+        screenOrientation.currOrientation = screenObject.orientation = 'unlocked';
         screenOrientation.setOrientation('unlocked');
     };
 }
@@ -76,13 +76,13 @@ function orientationChange() {
              orientation = 'portrait-primary';
              break;
         case 90:
-            orientation = 'landscape-secondary';
+            orientation = 'landscape-primary';
             break;
         case 180:
             orientation = 'portrait-secondary';
             break;
         case -90:
-            orientation = 'landscape-primary';
+            orientation = 'landscape-secondary';
             break;
         default:
             orientation = 'unknown';
